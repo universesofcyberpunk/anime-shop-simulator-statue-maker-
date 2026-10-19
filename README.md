@@ -60,7 +60,7 @@ Needs **Python 3.10 or newer (64-bit)** on Windows.
 
 ```bat
 git clone https://github.com/universesofcyberpunk/anime-shop-simulator-statue-maker-.git
-cd anime-shop-simulator-statue-maker
+cd anime-shop-simulator-statue-maker-
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
