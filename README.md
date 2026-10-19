@@ -59,7 +59,7 @@ If Windows SmartScreen warns, click *More info > Run anyway* (the exe is not sig
 Needs **Python 3.10 or newer (64-bit)** on Windows.
 
 ```bat
-git clone https://github.com/universesofcyberpunk/anime-shop-simulator-statue-maker.git
+git clone https://github.com/universesofcyberpunk/anime-shop-simulator-statue-maker-.git
 cd anime-shop-simulator-statue-maker
 python -m venv .venv
 .venv\Scripts\activate
@@ -135,7 +135,7 @@ Code licence (Statue Maker and Statue Shop): MIT, see `LICENSE`. If you reuse th
 
 | Project | What it does | Links |
 |---|---|---|
-| **Statue Maker + Statue Shop** (this repository) | turn any 3D model into a life-size shop statue (app) and the mod that sells it | [GitHub](https://github.com/universesofcyberpunk/anime-shop-simulator-statue-maker) |
+| **Statue Maker + Statue Shop** (this repository) | turn any 3D model into a life-size shop statue (app) and the mod that sells it | [GitHub](https://github.com/universesofcyberpunk/anime-shop-simulator-statue-maker-) |
 | **Figure Maker + FigureShop** | turn any 3D model into a shop figure (app) and the mod that sells it | [GitHub](https://github.com/universesofcyberpunk/anime-shop-simulator-figure-maker) · [Nexus](https://www.nexusmods.com/animeshopsimulator/mods/82) |
 | **Fabianens Mod Market** | MODS screen on the shop computer; API for other mods to list their items | [GitHub](https://github.com/universesofcyberpunk/anime-shop-simulator-mod-market) · [Nexus](https://www.nexusmods.com/animeshopsimulator/mods/31) |
 | **Mod Manager** | build / test / package / publish state of all your mods (tool for modders) | [GitHub](https://github.com/universesofcyberpunk/anime-shop-simulator-mod-manager) |
