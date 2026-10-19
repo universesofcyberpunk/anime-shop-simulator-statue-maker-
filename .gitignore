@@ -1,0 +1,11 @@
+out/
+work/
+build/
+dist/
+lang/
+settings.json
+*.exe
+__pycache__/
+*.pyc
+StatueShop/bin/
+StatueShop/obj/

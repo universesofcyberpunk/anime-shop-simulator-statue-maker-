@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>StatueShop</AssemblyName>
+    <RootNamespace>StatueShop</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <NoWarn>$(NoWarn);MSB3277;CS8632</NoWarn>
+    <!-- Game folder: pass -p:GameDir="..." or let it be found (repo inside ModDev\Repos, or the default Steam folder) -->
+    <GameDir Condition="'$(GameDir)' == '' And Exists('$(MSBuildProjectDirectory)\..\..\..\..\MelonLoader')">$(MSBuildProjectDirectory)\..\..\..\..</GameDir>
+    <GameDir Condition="'$(GameDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Anime Shop Simulator</GameDir>
+    <MLDir>$(GameDir)\MelonLoader</MLDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="MelonLoader"><HintPath>$(MLDir)\net6\MelonLoader.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(MLDir)\net6\0Harmony.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2CppInterop.Runtime"><HintPath>$(MLDir)\net6\Il2CppInterop.Runtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2CppInterop.Common"><HintPath>$(MLDir)\net6\Il2CppInterop.Common.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+
+  <!-- all proxy DLLs MelonLoader generates from the game -->
+  <ItemGroup>
+    <Reference Include="$(MLDir)\Il2CppAssemblies\*.dll">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="CheckGameDir" BeforeTargets="ResolveAssemblyReferences">
+    <Error Condition="!Exists('$(MLDir)\net6\MelonLoader.dll')"
+           Text="MelonLoader not found in $(MLDir). Run the game once with MelonLoader 0.7.x installed, or build with -p:GameDir=&quot;D:\Games\Anime Shop Simulator&quot;." />
+  </Target>
+
+  <Target Name="CopyToMods" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GameDir)\Mods" />
+    <Message Importance="high" Text="StatueShop.dll -> $(GameDir)\Mods" />
+  </Target>
+
+</Project>
+
